@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button with Toggle</title>
+    <style>
+        #myList li p.hidden-paragraph {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="myList">
+        <li>
+            <button class="myButton">Button 1</button>
+            <p class="hidden-paragraph">Paragraph 1 content goes here.</p>
+        </li>
+        <li>
+            <button class="myButton">Button 2</button>
+            <p class="hidden-paragraph">Paragraph 2 content goes here.</p>
+        </li>
+        <li>
+            <button class="myButton">Button 3</button>
+            <p class="hidden-paragraph">Paragraph 3 content goes here.</p>
+        </li>
+    </ul>
+
+    <script>
+        // JavaScript remains the same
+        var buttons = document.querySelectorAll('#myList li button');
+        var paragraphs = document.querySelectorAll('#myList li p');
+
+        buttons.forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                paragraphs.forEach(function(paragraph, i) {
+                    if (i === index) {
+                        paragraph.classList.toggle('hidden-paragraph');
+                    } else {
+                        paragraph.classList.add('hidden-paragraph');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
